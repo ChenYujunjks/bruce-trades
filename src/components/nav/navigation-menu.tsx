@@ -20,9 +20,6 @@ export function NavigationMenuDemo() {
           <NavigationMenuTrigger>Market Structure</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-2 w-85">
-              <ListItem href="/trading/journal" title="Trading Journal">
-                撰写、保存与回顾个人交易笔记。
-              </ListItem>
               <ListItem href="/trading/notes" title="Trade Notes">
                 Personal trading notes, setups, execution reviews, and lessons
                 learned.
@@ -119,7 +116,6 @@ export function NavigationMenuDemo() {
           </NavigationMenuContent>
         </NavigationMenuItem>
 
-        
       </NavigationMenuList>
     </NavigationMenu>
   );

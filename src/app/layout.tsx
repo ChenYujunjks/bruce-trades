@@ -1,15 +1,16 @@
 import Link from "next/link";
 import { Inter } from "next/font/google";
-import { Provider } from "@/components/api/trpc/Provider";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import ThemeToggle from "@/components/nav/themetoggle";
+import TradingReminder from "@/components/nav/trading-reminder";
 import { NavigationMenuDemo } from "@/components/nav/navigation-menu";
 import { Toaster } from "@/components/ui/sonner";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata = {
-  title: "Bruce Chen | Software Engineer",
+  title: "Bruce Trades | 交易手记",
+  description: "记录个人交易、trading ideas、交易笔记与实盘经验。关键位置，关键信号，心态管理，仓位管理。",
 };
 
 export default function RootLayout({
@@ -18,39 +19,38 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="zh-CN" suppressHydrationWarning>
       <body
         className={`${inter.className} bg-[--color-background] flex flex-col min-h-screen`}
       >
-        <Provider>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <header
-              className="
-                sticky top-0 z-50
-                backdrop-blur  /* 毛玻璃效果 */
-                bg-white/80       /* 浅色:80% 不透明白 */
-                dark:bg-zinc-900/60   /* 深色:60% 不透明深灰 */
-                border-b border-[--color-card-border]
-              "
-            >
-              <div className="container mx-auto p-4 ">
-                <div className="flex items-center justify-between w-full">
-                  <Link
-                    href="/"
-                    className="text-lg font-semibold tracking-tight text-[--color-foreground] hover:text-[--color-brand] transition"
-                  >
-                    {metadata.title as string}
-                  </Link>
-                  <NavigationMenuDemo />
-                  <ThemeToggle />
-                </div>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <header
+            className="
+              sticky top-0 z-50
+              backdrop-blur  /* 毛玻璃效果 */
+              bg-white/80       /* 浅色:80% 不透明白 */
+              dark:bg-zinc-900/60   /* 深色:60% 不透明深灰 */
+              border-b border-[--color-card-border]
+            "
+          >
+            <div className="relative z-10 container mx-auto p-4 ">
+              <div className="flex flex-wrap items-center justify-between gap-4 w-full">
+                <Link
+                  href="/"
+                  className="text-lg font-semibold tracking-tight text-[--color-foreground] hover:text-[--color-brand] transition"
+                >
+                  Bruce Trades
+                </Link>
+                <NavigationMenuDemo />
+                <ThemeToggle />
               </div>
-            </header>
+            </div>
+            <TradingReminder />
+          </header>
 
-            <main className="flex-1 container mx-auto p-6">{children}</main>
-            <Toaster />
-          </ThemeProvider>
-        </Provider>
+          <main className="flex-1 container mx-auto p-6">{children}</main>
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );

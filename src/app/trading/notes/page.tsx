@@ -112,10 +112,6 @@ export default function MyNotesPage() {
         </p>
       </section>
 
-      <Link href="/trading/journal" className="mb-8 inline-flex items-center gap-2 rounded-lg border bg-primary px-4 py-3 text-sm font-medium text-primary-foreground">
-        <FileText className="h-4 w-4" />打开交易笔记本 · 写笔记<ArrowRight className="h-4 w-4" />
-      </Link>
-
       {/* Core Principles */}
       <section className="mb-14">
         <div className="mb-5">
